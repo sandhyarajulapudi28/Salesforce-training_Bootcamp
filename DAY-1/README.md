@@ -1,43 +1,34 @@
-# Salesforce Training_Bootcamp
+# Day 01 - Salesforce-Training
 
-## About
+## Topics Covered
 
-This repository contains my daily hands-on work completed during the Salesforce Developer Bridge Program.
-
-The training focuses on:
-
-- Apex Programming
-- SOQL
-- SOSL
+- Salesforce Data Modeling
+- Object Relationships
+- Apex Basics
+- SOQL Queries
 - Apex Triggers
 - Lightning Web Components (LWC)
-- Salesforce Data Modeling
-- Automation
-- Real-world Salesforce Workflows
 
----
+## Tasks Completed
 
-## Training Progress
+✅ Designed a custom data model
 
-| Day | Topics | Status |
-|------|---------|--------|
-| Day 1 | Data Model, Apex Basics, SOQL, Triggers, LWC | ✅ Completed |
-| Day 2 | Coming Soon | ⏳ |
-| Day 3 | Coming soon
+✅ Created custom objects and relationships
 
----
+✅ Practiced 5 SOQL queries
 
-## Tools Used
+✅ Implemented an Apex Trigger with a Handler Class
 
-- Salesforce Trailhead Playground
-- Developer Console
-- Visual Studio Code
-- GitHub
+✅ Built a basic Lightning Web Component using @wire
 
----
+## Deliverables
 
-## Author
+- Object Manager Data Model Screenshot
+- SOQL Queries with Output
+- Trigger Screenshots
+- LWC Component Files
+- End-of-Day Reflection
 
-Sandhya Rajulapudi
-B.Tech CSE
-Vishnu Institute of Technology
+## Status
+
+✅ Completed
