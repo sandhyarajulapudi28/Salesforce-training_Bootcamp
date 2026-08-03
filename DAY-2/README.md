@@ -1,4 +1,4 @@
-# Day 02 - Salesforce Developer Bridge Program
+# Day 02 - Salesforce Training
 
 ## Overview
 
