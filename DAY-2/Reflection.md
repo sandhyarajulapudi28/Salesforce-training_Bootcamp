@@ -1,0 +1,1 @@
+Today I learned how to use Apex Collections (List, Set, and Map), understand Governor Limits, write bulkified Apex code, and explore the basics of Asynchronous Apex. I'm still stuck on identifying the best scenarios for using Future Methods, Queueable Apex, and Batch Apex.
