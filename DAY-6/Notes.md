@@ -1,31 +1,54 @@
 # Day-6 Notes
 
-## SOQL
-- Used to retrieve records.
-- Similar to SQL but works only with Salesforce objects.
-- Retrieves only required fields.
+## SOQL (Salesforce Object Query Language)
+- Used to retrieve records from Salesforce objects.
+- Similar to SQL but works only with Salesforce data.
+- Retrieve only the fields required for business logic.
 
 Example:
-SELECT Name, CGPA__c FROM Student__c
+SELECT CGPA__c FROM Student__c
 
-## DML Operations
+## DML (Data Manipulation Language)
+Used to modify Salesforce records.
+
+Operations:
 - insert
 - update
 - delete
 - undelete
 - upsert
 
-## Business Flow
-Retrieve Data
+## Business Transaction Flow
+
+Receive Request
 ↓
-Validate Business Rules
+Retrieve Student
 ↓
-Modify Data
+Retrieve Job
+↓
+Check Duplicate Application
+↓
+Validate Eligibility
+↓
+Create Application
+↓
+Save Record
 ↓
 Display Result
 
-## Key Learning
-- Retrieve information before making decisions.
-- Update records only after validation.
-- Test Apex using Execute Anonymous.
-- Verify output using Debug Logs.
+## What I Practiced
+
+- Retrieved Student records using SOQL.
+- Checked duplicate applications using SOQL.
+- Inserted Application records using DML.
+- Updated Application Status using DML.
+- Tested Apex using Execute Anonymous.
+- Verified output through Debug Logs.
+
+## Engineering Principles Learned
+
+- Retrieve data before making business decisions.
+- Perform business validation before DML operations.
+- Query only required fields.
+- Keep business logic inside service classes.
+- Test every change before deployment.
