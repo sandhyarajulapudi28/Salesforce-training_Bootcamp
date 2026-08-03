@@ -1,0 +1,28 @@
+template>
+    <lightning-card title="Child Component">
+        <div class="slds-p-around_medium">
+
+            <template if:true={patient}>
+
+                <p><strong>Patient Details</strong></p>
+
+                <p>
+                    <strong>Record Id:</strong>
+                    {patient.Id}
+                </p>
+
+                <p>
+                    <strong>Patient Name:</strong>
+                    {patient.Name}
+                </p>
+
+            </template>
+
+            <lightning-button
+                label="Notify Parent"
+                onclick={sendEvent}>
+            </lightning-button>
+
+        </div>
+    </lightning-card>
+</template>
