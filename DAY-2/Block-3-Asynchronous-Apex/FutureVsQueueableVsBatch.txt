@@ -1,0 +1,15 @@
+Future Method
+
+Runs asynchronously.
+Can only accept primitive parameters.
+
+Queueable Apex
+
+Runs asynchronously.
+Supports complex objects.
+Supports chaining.
+
+Batch Apex
+
+Used for thousands/millions of records.
+Runs in batches.
