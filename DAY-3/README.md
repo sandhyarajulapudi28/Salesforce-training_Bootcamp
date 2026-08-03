@@ -1,76 +1,61 @@
-# Day 03 – Salesforce Automation (Flows & Validation Rules)
+# Day 3 – Salesforce Automation
 
-## Overview
-
-Day 3 focused on automating a **Placement Management System** using Salesforce Flows and Validation Rules. The tasks involved building business automation, enforcing data validation, and understanding when to use Flow or Apex.
-
----
-
-## Block 1 – Flow & Validation Basics
-
-- Learned Salesforce Order of Execution.
-- Compared Validation Rules, Flows, and Triggers.
-- Understood Record-Triggered Flows and automation concepts.
+## Objective
+Implemented automation for the Placement Management System using Salesforce Flows and Validation Rules.
 
 ---
 
-## Block 2 – Business Scenario
+## 1. Which requirements did you solve using Flow?
 
-Implemented automation for a Placement Management System:
-- Auto-filled Application Date.
-- Prevented duplicate applications.
-- Validated minimum CGPA.
-- Sent email notifications.
-- Created Offer Letter records for selected students.
+The following requirements were automated using Record-Triggered Flows:
 
----
-
-## Block 3 – Record-Triggered Flow
-
-- Built a Record-Triggered Flow.
-- Automatically populated the Application Date.
-- Sent an email to the Placement Officer.
-- Verified successful Flow execution.
+- Automatically populate the Application Date when a new application is created.
+- Send an email notification after a successful application submission.
+- Automatically create an Offer Letter record when the application status becomes "Selected".
 
 ---
 
-## Block 4 – Validation Rules
+## 2. Which requirements required Validation Rules?
 
-Created Validation Rules to:
-- Validate minimum CGPA.
-- Prevent invalid Application Dates.
-- Ensure mandatory fields are completed.
+The following business rules were implemented using Validation Rules:
 
----
+- Prevent students with a CGPA below the required value from applying.
+- Prevent applications after the job closing date.
 
-## Block 5 – Flow vs Trigger
-
-Compared Flow and Apex Trigger use cases for different business requirements and identified the appropriate solution for each scenario.
+These rules ensure only valid records are saved.
 
 ---
 
-## Block 6 – Mini Project Enhancement
+## 3. Which requirements still needed Apex?
 
-Enhanced the Placement Management System by integrating:
-- Record-Triggered Flow
+The following requirements required Apex because they involve more complex business logic:
+
+- Prevent duplicate applications for the same student and job.
+- Perform advanced eligibility checks before saving an application.
+- Handle future business logic that cannot be achieved using only Flows or Validation Rules.
+
+---
+
+## 4. Why did you choose those solutions?
+
+- **Flow** was used for automation without writing code.
+- **Validation Rules** were used to prevent invalid data from being saved.
+- **Apex** was chosen for complex business logic that requires custom programming and decision-making.
+
+---
+
+## Technologies Used
+
+- Salesforce Flow
 - Validation Rules
-- Email Notifications
-- Offer Letter Automation
-
----
-
-## Block 7 – Debugging Challenge
-
-Analyzed automation conflicts between Flow, Trigger, and Workflow, and identified best practices to avoid recursive automation.
-
----
-
-## Block 8 – Interview Preparation
-
-Prepared answers to common Salesforce interview questions on Flows, Validation Rules, Apex, and Automation.
+- Salesforce Objects
+- Lightning Platform
 
 ---
 
 ## Learning Outcome
 
-Day 3 strengthened my understanding of Salesforce declarative automation by implementing real-world business processes using Flows and Validation Rules.
+- Created Record-Triggered Flows.
+- Implemented Validation Rules.
+- Understood when to use Flow, Validation Rules, and Apex.
+- Learned how Salesforce automation improves business processes.
