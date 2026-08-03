@@ -1,0 +1,127 @@
+<template>
+    <div class="welcome-banner">
+
+    <div class="welcome-icon">
+        👋
+    </div>
+
+    <div class="welcome-text">
+        <h2>Hello, {studentName}!</h2>
+        <p>Welcome to Vishnu Placement Portal</p>
+    </div>
+
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+
+    <div class="header-center">
+        <h1><img src={logoUrl} class="logo" alt="Vishnu Logo"> Vishnu Placement Portal!</h1>
+        <p>Your Future Begins Here 🚀</p>
+    </div>
+
+    <div class="header-date">
+        📅 {today}
+    </div>
+
+    </div>
+
+    <!-- Student Card -->
+    <div class="student-card">
+
+    <div class="profile-header">
+
+        <div class="avatar">
+            👨‍🎓
+        </div>
+
+        <div>
+
+            <h2>{studentName}</h2>
+
+            <p class="subtitle">
+                {department}
+            </p>
+
+            <p class="roll">
+                Roll No : {rollNumber}
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="status-box">
+
+        <span>Status</span>
+
+        <h3>{status}</h3>
+
+    </div>
+
+    <div class="buttons">
+
+        <lightning-button
+            label="Show Welcome"
+            variant="brand"
+            onclick={showMessage}>
+        </lightning-button>
+
+        <lightning-button
+            label="Apply Now"
+            variant="success"
+            onclick={applyNow}
+            class="applyBtn">
+        </lightning-button>
+
+    </div>
+
+    <template if:true={message}>
+        <div class="message">
+            🎉 {message}
+        </div>
+    </template>
+
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+
+    <div class="card companies">
+        <div class="card-icon">🏢</div>
+        <h3>Companies</h3>
+        <h1>{companies}</h1>
+        <span>Registered Companies</span>
+    </div>
+
+    <div class="card jobs">
+        <div class="card-icon">💼</div>
+        <h3>Jobs</h3>
+        <h1>{jobs}</h1>
+        <span>Available Jobs</span>
+    </div>
+
+    <div class="card applications">
+        <div class="card-icon">📄</div>
+        <h3>Applications</h3>
+        <h1>{applications}</h1>
+        <span>Submitted</span>
+    </div>
+
+    <div class="card status">
+        <div class="card-icon">🎯</div>
+        <h3>Status</h3>
+        <h1>{status}</h1>
+        <span>Current Application</span>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        ❤️ Built with Lightning Web Components
+    </div>
+
+</template>
