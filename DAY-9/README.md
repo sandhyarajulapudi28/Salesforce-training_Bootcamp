@@ -1,55 +1,63 @@
-# Day 9 – Eligible Jobs & Student Application
+# DAY-9 – Eligible Jobs & Job Applications
 
 ## Objective
-Build a student-facing Lightning Web Component for the Placement Management System where students can view eligible jobs, see job details, and apply for a job.
+
+Implemented an **Eligible Jobs and Job Application feature** for the Vishnu Placement Portal using Salesforce LWC and Apex.
 
 ## Work Completed
 
-### 1. Eligible Jobs Component
-- Created the eligibleJobs` Lightning Web Component.
-- Displayed available job opportunities as job cards.
-- Displayed key information:
-  - Company
-  - Role
+### 1. Eligible Jobs
+- Created the `eligibleJobs Lightning Web Component.
+- Displayed available job opportunities.
+- Displayed job information such as:
+  - Company Name
+  - Job Role
   - Package
   - Location
   - Closing Date
 
-### 2. View Job Details
-- Added a **View Details** button.
-- Displays additional job information in a modal.
-- Shows:
-  - Job
-  - Company
-  - Minimum CGPA
-  - Closing Date
-  - Required Skills
-  - Eligibility
-  - Experience
-  - Job Description
+### 2. View Details
+- Added a **View Details** button for each job.
+- Displays the selected job details when clicked.
 
-### 3. Apply for a Job
-- Added an **Apply** button.
-- Created an application form with:
-  - Full Name
-  - Email
-  - Phone Number
-- Added required-field validation.
-- Displays a success message after submission.
+### 3. Apply for Job
+- Added an **Apply** option for eligible jobs.
+- Students can submit their application for a selected job.
 
 ### 4. Apex Controller
-Created 'EligibleJobsController` to retrieve available jobs from Salesforce using SOQL.
+Created EligibleJobsController.cls` with:
+
+- `getEligibleJobs() – Retrieves active jobs using SOQL.
+- `submitApplication() – Creates a new Application record.
+- Checks whether the student has already applied for the selected job.
+- Links the Student and Job with the Application record.
+- Sets the application date and status.
 
 ### 5. Salesforce Records
-- Created Student records.
-- Created Job records.
-- Created an Application record.
-- Application was associated with the selected Student and Job.
+- Connected **Student, Job, and Application** records.
+- Successfully tested the application flow.
+- Verified the created Application record in Salesforce.
 
-## LWC Structure
+## Technologies Used
 
-text
-eligibleJobs/
-├── eligibleJobs.html
-├── eligibleJobs.js
-└── eligibleJobs.js-meta.xml
+- Salesforce
+- Lightning Web Components (LWC)
+- Apex
+- SOQL
+- HTML
+- JavaScript
+- Salesforce CLI
+- VS Code
+
+## Screenshots
+
+The Screenshots folder contains evidence of:
+
+1. Eligible Jobs
+2. View Details
+3. Apply Form
+4. Application Record
+
+## Result
+
+The **Eligible Jobs and Job Application functionality** was successfully implemented, tested, and documented in Salesforce.
