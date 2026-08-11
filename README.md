@@ -24,8 +24,8 @@ This repository contains my daily Salesforce Training Bootcamp assignments and h
 
 ## Daily Progress
 
-| Day | Topic | Status |
-|-----|-------|--------|
+| **Day** | **Topic** | **Status** |
+| ------------------ | -------------------------------------------------------- | ----------- |
 | Day 1 | Salesforce Setup & Objects | ✅ Completed |
 | Day 2 | Data Model & Relationships | ✅ Completed |
 | Day 3 | Flows & Validation Rules | ✅ Completed |
@@ -34,11 +34,11 @@ This repository contains my daily Salesforce Training Bootcamp assignments and h
 | Day 6 | SOQL & DML (Making Software Talk to Data) | ✅ Completed |
 | Day 7 | Apex Triggers (Making Software Respond Automatically) | ✅ Completed |
 | Day 8 | Asynchronous Apex (Future, Queueable, Batch & Scheduler) | ✅ Completed |
+| Day 9 | Component Communication, Forms, LDS & Reusable LWC Architecture | ✅ Completed |
 
 ---
 
 ## Repository Structure
-
 
 Salesforce-Training-Bootcamp/
 │
@@ -50,8 +50,10 @@ Salesforce-Training-Bootcamp/
 ├── Day-6/
 ├── Day-7/
 ├── Day-8/
+├── Day-9/
 └── README.md
 
+---
 
 ## Learning Outcomes
 
@@ -70,6 +72,13 @@ Salesforce-Training-Bootcamp/
   - Batch Apex
   - Scheduled Apex
 - Business Logic & Event-Driven Automation
+- Component Communication
+- LWC Forms
+- Lightning Data Service (LDS)
+- Reusable LWC Architecture
+- Loading, Error and Empty States
+- Modal-Based User Interfaces
+- Salesforce Application Workflow
 
 ---
 
@@ -81,15 +90,18 @@ Salesforce-Training-Bootcamp/
 - 🗂️ DML Operations
 - ⚡ Apex Trigger Automation
 - ⏳ Asynchronous Apex (Future, Queueable, Batch & Scheduler)
+- 🔄 Component Communication
 - 📝 Notes and Reflections for every sprint
 - 📸 Screenshots demonstrating implementation and testing
+- 🧩 Reusable Lightning Web Components
+- 📝 LWC Forms and Application Workflow
 - 🚀 Clean GitHub repository structure following industry best practices
 
 ---
 
 ## Progress
 
-**Completed:** ✅ Day 1 – Day 8
+**Completed:** ✅ Day 1 – Day 9
 
 🚀 Continuing my **30-Day Salesforce Training Bootcamp** by learning and implementing real-world Salesforce development concepts every day.
 
