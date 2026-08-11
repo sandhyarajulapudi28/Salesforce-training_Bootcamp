@@ -1,0 +1,54 @@
+<template>
+
+    <lightning-card title="Student Portal" icon-name="standard:contact">
+
+        <!-- Loading -->
+        <template if:false={student}>
+
+            <template if:false={hasError}>
+
+                <div class="slds-p-around_medium slds-text-align_center">
+
+                    <lightning-spinner
+                        alternative-text="Loading student profile"
+                        size="medium">
+                    </lightning-spinner>
+
+                    <p class="slds-m-top_medium">
+                        Loading student profile...
+                    </p>
+
+                </div>
+
+            </template>
+
+        </template>
+
+
+        <!-- Error -->
+        <template if:true={hasError}>
+
+            <div class="slds-p-around_medium">
+
+                <p class="slds-text-color_error">
+                    Unable to load student profile.
+                </p>
+
+            </div>
+
+        </template>
+
+
+        <!-- Student Profile -->
+        <template if:true={hasStudent}>
+
+            <c-student-profile
+                student={student}
+                onprofilesave={handleProfileSave}>
+            </c-student-profile>
+
+        </template>
+
+    </lightning-card>
+
+</template>
