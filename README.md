@@ -2,7 +2,7 @@
 
 ## About
 
-This repository contains my daily Salesforce Training Bootcamp assignments and hands-on practice. It showcases my learning journey in Salesforce development, including Apex, SOQL, DML, Lightning Web Components (LWC), Flows, Validation Rules, Triggers, and Asynchronous Apex.
+This repository contains my daily Salesforce Training Bootcamp assignments and hands-on practice. It showcases my learning journey in Salesforce development, including Apex, SOQL, DML, Lightning Web Components (LWC), Flows, Validation Rules, Triggers, Asynchronous Apex, Salesforce Integration, Git, Salesforce CLI, Metadata and Deployment.
 
 ---
 
@@ -17,8 +17,13 @@ This repository contains my daily Salesforce Training Bootcamp assignments and h
 - Validation Rules
 - Apex Triggers
 - Asynchronous Apex
-- VS Code
+- Salesforce APIs
+- REST Integration
+- Named Credentials
+- Salesforce CLI
+- Salesforce Metadata
 - Git & GitHub
+- VS Code
 
 ---
 
@@ -35,6 +40,9 @@ This repository contains my daily Salesforce Training Bootcamp assignments and h
 | Day 7 | Apex Triggers (Making Software Respond Automatically) | ✅ Completed |
 | Day 8 | Asynchronous Apex (Future, Queueable, Batch & Scheduler) | ✅ Completed |
 | Day 9 | Component Communication, Forms, LDS & Reusable LWC Architecture | ✅ Completed |
+| Day 10 | Advanced LWC Architecture & Application Workflow | ✅ Completed |
+| Day 11 | Salesforce APIs, REST Integration, Named Credentials and External Systems | ✅ Completed |
+| Day 12 | Git, Salesforce CLI, Metadata and Deployment Workflow | ✅ Completed |
 
 ---
 
@@ -51,6 +59,9 @@ Salesforce-Training-Bootcamp/
 ├── Day-7/
 ├── Day-8/
 ├── Day-9/
+├── Day-10/
+├── Day-11/
+├── Day-12/
 └── README.md
 
 ---
@@ -79,6 +90,21 @@ Salesforce-Training-Bootcamp/
 - Loading, Error and Empty States
 - Modal-Based User Interfaces
 - Salesforce Application Workflow
+- Salesforce APIs
+- REST Integration
+- Named Credentials
+- External Systems
+- Salesforce CLI
+- Salesforce Metadata
+- Metadata Deployment
+- Sandboxes
+- Scratch Orgs
+- Changesets
+- Metadata API
+- Git & GitHub
+- Branches and Pull Requests
+- Git Conflicts
+- Deployment Workflows
 
 ---
 
@@ -95,13 +121,17 @@ Salesforce-Training-Bootcamp/
 - 📸 Screenshots demonstrating implementation and testing
 - 🧩 Reusable Lightning Web Components
 - 📝 LWC Forms and Application Workflow
+- 🔗 Salesforce API and REST Integration
+- 🔐 Named Credentials and External Systems
+- 🛠️ Salesforce CLI and Deployment Workflows
+- 📦 Salesforce Metadata Management
 - 🚀 Clean GitHub repository structure following industry best practices
 
 ---
 
 ## Progress
 
-**Completed:** ✅ Day 1 – Day 9
+**Completed:** ✅ Day 1 – Day 12
 
 🚀 Continuing my **30-Day Salesforce Training Bootcamp** by learning and implementing real-world Salesforce development concepts every day.
 
