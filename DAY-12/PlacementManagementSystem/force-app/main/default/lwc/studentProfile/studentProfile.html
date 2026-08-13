@@ -1,0 +1,112 @@
+<template>
+
+    <lightning-card title="Student Profile" icon-name="standard:contact">
+
+        <!-- VIEW MODE -->
+        <template if:true={isViewMode}>
+
+            <div class="slds-p-around_medium">
+
+                <p>
+                    <strong>Student Name:</strong>
+                    {student.Name}
+                </p>
+
+                <p class="slds-m-top_small">
+                    <strong>Email:</strong>
+                    {student.Email__c}
+                </p>
+
+                <p class="slds-m-top_small">
+                    <strong>Phone:</strong>
+                    {student.Phone__c}
+                </p>
+
+                <p class="slds-m-top_small">
+                    <strong>CGPA:</strong>
+                    {student.CGPA__c}
+                </p>
+
+                <div class="slds-m-top_medium">
+
+                    <lightning-button
+                        label="Edit Profile"
+                        variant="brand"
+                        onclick={handleEdit}>
+                    </lightning-button>
+
+                </div>
+
+            </div>
+
+        </template>
+
+
+        <!-- EDIT MODE -->
+        <template if:false={isViewMode}>
+
+            <div class="slds-p-around_medium">
+
+                <lightning-input
+                    label="Student Name"
+                    value={student.Name}
+                    disabled>
+                </lightning-input>
+
+
+                <lightning-input
+                    data-field="email"
+                    type="email"
+                    label="Email"
+                    value={student.Email__c}
+                    class="slds-m-top_medium"
+                    required>
+                </lightning-input>
+
+
+                <lightning-input
+                    data-field="phone"
+                    type="tel"
+                    label="Phone"
+                    value={student.Phone__c}
+                    class="slds-m-top_medium"
+                    required>
+                </lightning-input>
+
+
+                <lightning-input
+                    data-field="cgpa"
+                    type="number"
+                    label="CGPA"
+                    value={student.CGPA__c}
+                    min="0"
+                    max="10"
+                    step="0.01"
+                    class="slds-m-top_medium"
+                    required>
+                </lightning-input>
+
+
+                <div class="slds-m-top_medium">
+
+                    <lightning-button
+                        label="Cancel"
+                        onclick={handleCancel}>
+                    </lightning-button>
+
+                    <lightning-button
+                        label="Save"
+                        variant="brand"
+                        class="slds-m-left_small"
+                        onclick={handleSave}>
+                    </lightning-button>
+
+                </div>
+
+            </div>
+
+        </template>
+
+    </lightning-card>
+
+</template>

@@ -1,0 +1,291 @@
+<template>
+
+    <lightning-card title="Eligible Jobs">
+
+        <!-- Loading State -->
+        <template if:true={isLoading}>
+
+            <div class="slds-p-around_medium slds-text-align_center">
+
+                <lightning-spinner
+                    alternative-text="Loading jobs"
+                    size="medium">
+                </lightning-spinner>
+
+                <p class="slds-m-top_medium">
+                    Loading eligible jobs...
+                </p>
+
+            </div>
+
+        </template>
+
+
+        <!-- Error State -->
+        <template if:true={hasError}>
+
+            <div class="slds-p-around_medium slds-text-align_center">
+
+                <p class="slds-text-color_error">
+                    We could not load eligible jobs.
+                </p>
+
+                <p class="slds-m-top_small">
+                    Please try again later or contact the Placement Office.
+                </p>
+
+            </div>
+
+        </template>
+
+
+        <!-- Jobs -->
+        <template if:false={isLoading}>
+
+            <template if:false={hasError}>
+
+                <template if:true={hasJobs}>
+
+                    <template for:each={jobs} for:item="job">
+
+                        <div
+                            key={job.company}
+                            class="slds-box slds-theme_default slds-m-around_small">
+
+                            <h2 class="slds-text-heading_medium">
+                                {job.company}
+                            </h2>
+
+                            <p>
+                                <strong>Role:</strong>
+                                {job.role}
+                            </p>
+
+                            <p>
+                                <strong>Package:</strong>
+                                {job.packageOffered}
+                            </p>
+
+                            <p>
+                                <strong>Location:</strong>
+                                {job.location}
+                            </p>
+
+                            <p>
+                                <strong>Deadline:</strong>
+                                {job.deadline}
+                            </p>
+
+
+                            <!-- Buttons -->
+                            <div class="slds-m-top_medium">
+
+                                <lightning-button
+                                    label="View Details"
+                                    variant="brand-outline"
+                                    data-id={job.id}
+                                    onclick={handleViewDetails}>
+                                </lightning-button>
+
+                                <lightning-button
+                                     label="Apply"
+                                     variant="brand"
+                                     class="slds-m-left_small"
+                                     data-id={job.id}
+                                     onclick={handleApply}>
+    
+                                </lightning-button>
+
+                            </div>
+
+                        </div>
+
+                    </template>
+
+                </template>
+
+
+                <!-- Empty State -->
+                <template if:false={hasJobs}>
+
+                    <div class="slds-p-around_medium slds-text-align_center">
+
+                        <h2 class="slds-text-heading_medium">
+                            No Eligible Jobs
+                        </h2>
+
+                        <p class="slds-m-top_small">
+                            There are currently no placement opportunities
+                            available for you.
+                        </p>
+
+                    </div>
+
+                </template>
+
+            </template>
+
+        </template>
+
+    </lightning-card>
+
+
+    <!-- ================================================= -->
+    <!-- VIEW DETAILS MODAL -->
+    <!-- ================================================= -->
+
+    <template if:true={showDetails}>
+
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-modal="true"
+            class="slds-modal slds-fade-in-open">
+
+            <div class="slds-modal__container">
+
+                <!-- Header -->
+                <header class="slds-modal__header">
+
+                    <h2 class="slds-text-heading_medium">
+                        {selectedJob.company}
+                    </h2>
+
+                </header>
+
+
+                <!-- Body -->
+                <div class="slds-modal__content slds-p-around_medium">
+
+                    <p>
+                        <strong>Job:</strong>
+                        {selectedJob.role}
+                    </p>
+
+                    <p class="slds-m-top_small">
+                        <strong>Company:</strong>
+                        {selectedJob.company}
+                    </p>
+
+                    <p class="slds-m-top_small">
+                        <strong>Minimum CGPA:</strong>
+                        {selectedJob.eligibility}
+                    </p>
+
+                    <p class="slds-m-top_small">
+                        <strong>Closing Date:</strong>
+                        {selectedJob.deadline}
+                    </p>
+
+                </div>
+                <!-- Footer -->
+                <footer class="slds-modal__footer">
+
+                    <lightning-button
+                        label="Close"
+                        onclick={handleCloseDetails}>
+                    </lightning-button>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+    </template>
+
+
+    <!-- ================================================= -->
+    <!-- APPLY FORM MODAL -->
+    <!-- ================================================= -->
+
+    <template if:true={showApplyForm}>
+
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-modal="true"
+            class="slds-modal slds-fade-in-open">
+
+            <div class="slds-modal__container">
+
+                <!-- Header -->
+                <header class="slds-modal__header">
+
+                    <h2 class="slds-text-heading_medium">
+                        Apply for {selectedApplyJob.role}
+                    </h2>
+
+                    <p class="slds-m-top_x-small">
+                        {selectedApplyJob.company}
+                    </p>
+
+                </header>
+
+
+                <!-- Form -->
+                <div class="slds-modal__content slds-p-around_medium">
+
+                    <lightning-input
+                        label="Full Name"
+                        name="applicantName"
+                        value={applicantName}
+                        onchange={handleInputChange}
+                        required>
+                    </lightning-input>
+
+
+                    <lightning-input
+                        type="email"
+                        label="Email"
+                        name="applicantEmail"
+                        value={applicantEmail}
+                        onchange={handleInputChange}
+                        class="slds-m-top_medium"
+                        required>
+                    </lightning-input>
+
+
+                    <lightning-input
+                        type="tel"
+                        label="Phone Number"
+                        name="applicantPhone"
+                        value={applicantPhone}
+                        onchange={handleInputChange}
+                        class="slds-m-top_medium"
+                        required>
+                    </lightning-input>
+
+                </div>
+
+
+                <!-- Footer -->
+                <footer class="slds-modal__footer">
+
+                    <lightning-button
+                        label="Cancel"
+                        onclick={handleCloseApply}>
+                    </lightning-button>
+
+                    <lightning-button
+                        label="Submit Application"
+                        variant="brand"
+                        class="slds-m-left_small"
+                        onclick={handleSubmitApplication}>
+                    </lightning-button>
+
+                </footer>
+
+            </div>
+
+        </section>
+
+
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+    </template>
+
+</template>

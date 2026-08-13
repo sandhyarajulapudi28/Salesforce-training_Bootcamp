@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Parent Component">
+
+        <div class="slds-p-around_medium">
+
+            <p>
+                <strong>Patient Record Id</strong>
+            </p>
+
+            <lightning-input
+                value={patientId}
+                readonly>
+            </lightning-input>
+
+            <br>
+
+            <c-patient-child
+                patient-id={patientId}
+                onnotify={handleNotify}>
+            </c-patient-child>
+
+            <br>
+
+            <p>{message}</p>
+
+        </div>
+
+    </lightning-card>
+</template>

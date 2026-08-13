@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Appointments">
+
+        <template if:true={appointments.data}>
+            <template for:each={appointments.data} for:item="app">
+                <div key={app.Id} class="slds-p-around_small">
+                    <p><strong>{app.Name}</strong></p>
+                    <p>Status: {app.Status__c}</p>
+                    <p>Date: {app.Appointment_Date__c}</p>
+                </div>
+            </template>
+        </template>
+
+        <template if:true={appointments.error}>
+            <div class="slds-p-around_small">
+                Error loading appointments.
+            </div>
+        </template>
+
+    </lightning-card>
+</template>
