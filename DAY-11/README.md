@@ -123,5 +123,4 @@ CandidateSyncQueueable`
 
 The class implements:
 
---java
 Queueable, Database.AllowsCallouts
