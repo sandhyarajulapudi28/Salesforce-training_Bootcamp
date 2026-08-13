@@ -1,159 +1,127 @@
-# DAY 11 – Salesforce Integration
+# Day 11 – Salesforce API Integration
 
-## Sprint 11 – Crossing the Salesforce Boundary
+## Chapter 11: Crossing the Salesforce Boundary
 
-### Overview
+Day 11 focused on integrating Salesforce with an external system using REST APIs, Named Credentials, External Credentials, Permission Sets, and Queueable Apex.
 
-Day 11 focuses on integrating Salesforce with external systems. The Placement Management System is extended to communicate with an external recruitment platform using **REST APIs, Apex Callouts, Queueable Apex, and Named Credentials**.
-
----
-
-## Business Problem
-
-When a student's application becomes **Selected**, Salesforce should automatically send the candidate information to an external recruitment system.
-
-### Integration Flow
-`text
-Application Selected
-        ↓
-      Trigger
-        ↓
-     Service
-        ↓
-     Queueable
-        ↓
-Named Credential
-        ↓
-     REST API
-        ↓
-External Recruitment System
-        ↓
-Integration Status
-
+The main objective was to build a secure integration where a selected candidate from a Salesforce Application record can be sent to an external Recruitment API.
 
 ---
 
-## Topics Covered
+## Learning Objectives
 
-* API and REST API fundamentals
-* HTTP methods: GET, POST, PUT, PATCH, DELETE
-* HTTP requests and responses
-* JSON data format
-* Salesforce HTTP Callouts
-* Queueable Apex for asynchronous processing
-* Named Credentials
-* Authentication vs Authorisation
-* Auth Providers
-* External Objects and Salesforce Connect
-* Point-to-Point and Middleware integration
-* Synchronous vs Asynchronous integration
-* Error handling and retry strategy
-* Idempotency and duplicate prevention
+By completing Day 11, I learned how to:
 
----
-
-## REST API Contract
-
-### Endpoint
-
-`text
-POST /candidates
-
-
-### Request Example
-
-json
-{
-  "studentId": "STU10045",
-  "name": "Ananya",
-  "email": "ananya@example.com",
-  "branch": "CSE",
-  "cgpa": 8.4,
-  "jobId": "JOB1007",
-  "company": "KSquare",
-  "role": "Salesforce Developer"
-}
-
-
-### Common Responses
-
-| Status  | Meaning                |
-| ------- | ---------------------- |
-| 200/201 | Success                |
-| 400     | Bad Request            |
-| 401     | Authentication Failure |
-| 403     | Forbidden              |
-| 500     | Server Error           |
+- Understand Salesforce REST API integration.
+- Configure External Credentials.
+- Configure External Credential Principals.
+- Create and configure Named Credentials.
+- Provide external credential access using Permission Sets.
+- Perform HTTP callouts from Apex.
+- Use Queueable Apex for asynchronous processing.
+- Implement Database.AllowsCallouts`.
+- Send Salesforce record data as JSON to an external API.
+- Handle successful and failed API responses.
+- Store integration status and error information on Salesforce records.
+- Test Salesforce-to-external-system communication.
 
 ---
 
-## Security
+## Technologies Used
 
-The integration uses **Named Credentials** instead of hard-coding API URLs, passwords, tokens, or secrets in Apex.
-
-text
-Apex
-  ↓
-Named Credential
-  ↓
-Authentication
-  ↓
-External API
-
-
-Authentication verifies identity, while authorisation determines permissions.
+- Salesforce Developer Edition
+- Apex
+- Queueable Apex
+- REST API
+- HTTP Callouts
+- Named Credentials
+- External Credentials
+- Permission Sets
+- VS Code
+- Salesforce CLI
+- Postman Echo / HTTP test API
 
 ---
 
-## Error Handling and Retry
+## Integration Architecture
 
-Integration status can be tracked using values such as:
+The integration follows this flow:
 
-text
-Pending → Sent
-       ↘ Failed
-       ↘ Retry Required
-
-
-If the external system temporarily fails, the request can be retried.
-
-**Idempotency** is considered to prevent duplicate candidate creation when the same request is processed more than once.
-
----
-
-## Integration Pattern
-
-This project uses **asynchronous point-to-point integration**.
-
-* **Queueable Apex** is used because the user does not need to wait for the external system.
-* **Point-to-point integration** is suitable for this simple external recruitment use case.
-* **Middleware** can be considered when many external systems need to be integrated.
+Salesforce Application  
+↓  
+CandidateSyncQueueable  
+↓  
+Named Credential  
+↓  
+External Credential  
+↓  
+External API  
+↓  
+HTTP Response  
+↓  
+Application Integration Status
 
 ---
 
-## Key Learning
+## Salesforce Configuration
 
-Day 11 helped me understand how Salesforce communicates with external systems securely and reliably.
+### 1. External Credential
 
-The main architecture learned is:
-`text
-Trigger
-   ↓
-Service
-   ↓
-Queueable Apex
-   ↓
-Named Credential
-   ↓
-REST API
-   ↓
-External System
-   ↓
-Response
-   ↓
-Integration Status
+Created an External Credential:
 
+**Label:** Recruitment API External
 
-### Technologies
+The External Credential is used to manage authentication and external access configuration.
 
-**Salesforce Apex | Queueable Apex | REST API | JSON | HTTP Callouts | Named Credentials | Salesforce Connect**
+---
+
+### 2. External Credential Principal
+
+Configured:
+
+**RecruitmentAPIPrincipal**
+
+The principal was enabled for the Permission Set so that the Salesforce user can authenticate through the external credential.
+
+---
+
+### 3. Permission Set
+
+Created:
+
+**Recruitment API Access**
+
+The Permission Set provides access to the Recruitment API external credential principal.
+
+The Permission Set was assigned to:
+
+**RAJULAPUDI SANDHYA**
+
+---
+
+### 4. Named Credential
+
+Created:
+
+**Label:** Recruitment API
+
+**Name:** Recruitment_API`
+
+The Named Credential provides the endpoint used by Apex callouts.
+
+The endpoint was configured for the external API and connected with:
+
+**Recruitment API External**
+
+---
+
+## Apex Integration
+
+The integration was implemented using the Queueable Apex class:
+
+CandidateSyncQueueable`
+
+The class implements:
+
+--java
+Queueable, Database.AllowsCallouts
