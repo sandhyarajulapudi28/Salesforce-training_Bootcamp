@@ -1,7 +1,6 @@
 
 # `notes.md`
 
-``markdown
 # Day 11 Notes – Salesforce API Integration
 
 ## 1. Salesforce Integration
